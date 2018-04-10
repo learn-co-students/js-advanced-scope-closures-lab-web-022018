@@ -1,13 +1,8 @@
-function produceDrivingRange(range) {
-  return function(start, destination) {
-    let sta = parseInt(start)
-    let des = parseInt(destination)
-    let diff = (Math.abs(sta-des))
-    if (diff > range) {
-      return (diff - range) + ' blocks out of range'
-    } else {
-      return 'within range by ' + (Math.abs(diff - range))
-    }
+function produceDrivingRange(blockRange) {
+  return function(one, two) {
+    return (Math.abs(parseInt(one)-parseInt(two)) > blockRange) ?
+    `${Math.abs(parseInt(one)-parseInt(two))-blockRange} blocks out of range`
+    : `within range by ${blockRange - Math.abs(parseInt(one)-parseInt(two))}`
   }
 }
 
